@@ -34,7 +34,7 @@ const SideNavBar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link className=" flex items-center gap-4 ">
+                    <Link to={'/main/formuc'} className=" flex items-center gap-4 ">
                         <BiMessageDetail/>
                         <snap>Forum</snap>
                     </Link>

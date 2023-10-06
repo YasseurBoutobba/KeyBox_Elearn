@@ -6,6 +6,7 @@ import LandingPage from './pages/landing_page/Main'
 import { Route, Routes } from "react-router-dom"
 import {User } from './pages/Profiles/User'
 import { LeaderBoard } from './pages/Profiles/LeaderBoard'
+import Formuc from './pages/Profiles/Forum'
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/main' element={<Profile />} >
         <Route index element={<User/>} />
         <Route path={'leader-bord'} element={<LeaderBoard/>} />
+        <Route path={'formuc'} element={<Formuc />} />
       </Route>
     </Routes>
     </>
