@@ -6,6 +6,7 @@ import usthb from '../assets/usthb.png'
 import stilioo from '../assets/stilioo.png'
 import circle from '../assets/circle.png'
 import abischool from '../assets/abischool.png'
+import { Link } from 'react-router-dom'
 const Hero = () => {
     return ( 
     <div className=' relative'>
@@ -14,7 +15,9 @@ const Hero = () => {
         <div className='  flex flex-col justify-center items-start gap-6 w-[50%] ' data-aos="fade-right" data-aos-once="true">
             <h1 className=' text-4xl font-bold '>Make your key to the future !​</h1>
             <p className=' leading-6'>KEYBOX est un centre d’apprentissage technologique spécialisé en robotique. Pour but de la vulgarisation du domaine de la robotique et le rendre plus accessible pour tt les amateurs et les amoureux de la création et d’invention</p>
-            <button className=' px-4 py-2 bg-mainBlue text-gray-100 rounded-lg text-xl hover:scale-[1.08] transition'>Get started</button>
+            <Link >
+                <button className=' px-4 py-2 bg-mainBlue text-gray-100 rounded-lg text-xl hover:scale-[1.08] transition'>Get started</button>
+            </Link>
             <div>
                 <p className=' capitalize mb-6'>trusted by : </p>
                 <div className=' flex items-center gap-4'>

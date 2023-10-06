@@ -5,21 +5,20 @@ import googlelogo from './assets/googlelogo.png'
 import loginImg from './assets/loginImg.png'
 import { Formik } from 'formik';
 import { Link } from "react-router-dom";
-const LogIn = () => {
+import profileImg from "./assets/person.png"
+const SignUp = () => {
     
     return ( 
         <div className="flex h-[100dvh] items-center justify-between container mx-auto">
-            <div className="w-[40%] text-center flex i flex-col gap-4">
-                <h1 className=" text-4xl font-bold">Login to your Account</h1>
-                <p className=" text-lg text-gray-500">Welcome back! Select method to log in:</p>
-                <div className="inline-flex justify-center items-center">
-                    <div className="w-[7.5rem] h-[2px] bg-gray-400" />
-                    <div className="w-[13.3125rem] h-[1.5625rem] text-gray-400 text-center text-[.9375rem] font-medium leading-6">or continue with email</div>
-                    <div className="w-[7.5rem] h-[2px] bg-gray-400" />
-                </div>               
+            <div className="w-[40%] text-start flex i flex-col gap-4">
+                <h1 className=" text-4xl font-bold">Create your Account</h1>
+                <p className=" text-lg text-gray-500">Unlock all features!</p>
+                            
                 <form className="flex flex-col items-center justify-between gap-4">
+                    <CostumInput type={'text'} img={profileImg} text={'Username'} />
                     <CostumInput type={'email'} img={lettreBox} text={"Email"}/>
                     <CostumInput type={'password'} img={passwordIcon} text={"Password"}/>
+                    <CostumInput type={'password'} img={passwordIcon} text={"Confirm Password"}/>
                     <div className="flex justify-between w-full">
                         <div className="flex gap-2">
                             <input type="checkbox"  />
@@ -28,7 +27,7 @@ const LogIn = () => {
                         <span className="text-sm text-gray-400 ">Forgot Password ?</span>
                     </div>
                     
-                    <button className=" uppercase py-4 mt-4 bg-mainBlue w-full rounded-lg text-gray-100 font-semibold text-xl" type="submit">log in</button>
+                    <button className=" uppercase py-2 mt-4 bg-mainBlue w-full rounded-lg text-gray-100 font-semibold text-xl" type="submit">log in</button>
                 </form>
                 <p className=" text=sm text-gray-400 ">Don’t have account? 
                     <Link to="/signup">Create an account</Link> 
@@ -51,4 +50,4 @@ const LogIn = () => {
 }
 
  
-export default LogIn;
+export default SignUp;
