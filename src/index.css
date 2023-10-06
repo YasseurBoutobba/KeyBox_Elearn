@@ -21,3 +21,6 @@
   background-size: cover; 
   background-repeat: no-repeat; 
 }
+.bg-leader{
+  background-color:rgba(45, 49, 166, 0.2)
+}
