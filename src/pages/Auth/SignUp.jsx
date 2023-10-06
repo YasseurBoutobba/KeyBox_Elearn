@@ -37,14 +37,15 @@ const SignUp = () => {
         },
         validationSchema: userSchema,
         onSubmit: values => {
-          axios.post(`${base_url}/api/auth/register/user`,values).then((res)=>{
-            setCreatedSucc(res?.data?.message)
-            setTimeout(() => {
-                navigate('/login')
-            }, 1500);
-          }).catch((err)=>{
-            setErrorLogin(err?.message)
-          })
+            console.log(values)
+        //   axios.post(`${base_url}/api/auth/register/user`,values).then((res)=>{
+        //     setCreatedSucc(res?.data?.message)
+        //     setTimeout(() => {
+        //         navigate('/login')
+        //     }, 1500);
+        //   }).catch((err)=>{
+        //     setErrorLogin(err?.message)
+        //   })
         }
       })
     

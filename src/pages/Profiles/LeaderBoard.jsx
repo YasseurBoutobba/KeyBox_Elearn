@@ -1,9 +1,20 @@
+import { useEffect } from 'react'
 import man1 from './assets/man1.png'
 import man2 from './assets/man2.png'
 import man3 from './assets/man3.png'
-
+import {useNavigate } from "react-router-dom";
 
 export const LeaderBoard = () => {
+
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        const getUserFromLocalStorage = localStorage.getItem('junctionData')
+        if (getUserFromLocalStorage === undefined || getUserFromLocalStorage === null ) {
+            navigate('/login')
+        }
+    },[])
+
   return (
     <>
     <div className="bg-white w-full p-6 m-4 rounded-xl">

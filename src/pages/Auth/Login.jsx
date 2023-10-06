@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {base_url} from '../../utils/base_url'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 let userSchema = Yup.object({
     userName: Yup.string().required('username is required'),
@@ -22,6 +22,13 @@ const LogIn = () => {
     const [errorLogin ,setErrorLogin] = useState('')
     const navigate = useNavigate()
 
+    useEffect(()=>{
+        const getUserFromLocalStorage = localStorage.getItem('junctionData')
+        if (getUserFromLocalStorage !== undefined && getUserFromLocalStorage !== null  ) {
+            navigate('/main/')
+        }
+    },[])
+
     const formik = useFormik({
         initialValues:  {
           userName:'',
@@ -34,7 +41,7 @@ const LogIn = () => {
             localStorage.setItem('junctionData',JSON.stringify(junctionData))
             setLoginSucc(res?.data?.message)
             setTimeout(() => {
-                // navigate('/login')
+                navigate('/main/')
             }, 1500);
           }).catch((err)=>{
             setErrorLogin(err?.message  || 'An error occurred while logging in.')

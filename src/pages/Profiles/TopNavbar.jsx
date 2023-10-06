@@ -1,10 +1,13 @@
 import notificationIcon from './assets/icons/notification.png'
 import coinIcon from './assets/twemoji_coin.png'
 const TopNavBar = () => {
+
+    const user = JSON.parse(localStorage.getItem('junctionData'))
+
     return ( 
         <div className=" fixed flex justify-around w-[80%] h-[10vh] top-4 left-[20%]" >
             <div>
-                <h1 className=' font-semibold'>Welcome, Ramzi</h1>
+                <h1 className=' font-semibold'>Welcome, {user?.userName}</h1>
                 <p>Have a good day !</p>
             </div>
             <div >
