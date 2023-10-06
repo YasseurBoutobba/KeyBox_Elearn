@@ -24,7 +24,7 @@ const TopNavBar = () => {
             <div className=' flex items-center gap-10'>
                 <img src={notificationIcon} alt="" />
                 <div className=' flex items-center gap-2'>
-                    <h1>100</h1>
+                    <h1>{user?.point}</h1>
                     <img src={coinIcon} alt="" />
                 </div>
             </div>     

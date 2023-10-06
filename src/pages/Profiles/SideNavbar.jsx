@@ -1,14 +1,29 @@
-import {  NavLink, useLocation } from "react-router-dom";
+import {  NavLink, useLocation, useNavigate } from "react-router-dom";
 import { BsPerson, BsBarChart, BsFolder2Open,  } from "react-icons/bs"
 import pacmen from './assets/icons/pacmenicon.png'
 import logout from './assets/icons/logouticon.png'
 import logo from './assets/Logo.png'
 import {BiMessageDetail} from 'react-icons/bi'
+import { base_url } from "../../utils/base_url";
+import axios from 'axios'
+
 const SideNavBar = () => {
     const location = useLocation();
     let isActive = (path) => {
         return location.pathname === path;
     };
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem('junctionData')
+        const logoutUser = async () => {
+            const response = await axios.delete(`${base_url}/api/auth/sign_out`);
+            navigate('/login')
+        };
+        logoutUser();
+    }
+
     return ( 
         <div className="  bg-darkBlue fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
             <img className=" w-[80px]" src={logo} alt="" />
@@ -38,17 +53,17 @@ const SideNavBar = () => {
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink to={'/main/forum'}  className={`flex items-center gap-4  ${isActive('/main/forum') ? 'text-[#00C8FF]' : ''}`}>
+                    < NavLink to={'/main/formuc'}  className={`flex items-center gap-4  ${isActive('/main/formuc') ? 'text-[#00C8FF]' : ''}`}>
                         <BiMessageDetail/>
                         <snap>Forum</snap>
                     </ NavLink>
                 </li>
             </ul>
             <div >
-                < NavLink to="/" className=" flex items-center justify-between" >
+                < button onClick={handleLogout} className=" flex items-center justify-between" >
                     <span>Log out</span>
-                    <img src={logout} alt="" />
-                </ NavLink>
+                    <img className="ml-12" src={logout} alt="" />
+                </ button>
             </div>
             
         </div>

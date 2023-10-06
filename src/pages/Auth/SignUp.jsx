@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 import { Link, useNavigate } from 'react-router-dom'
 import profileImg from './assets/person.png'
 import { base_url } from '../../utils/base_url'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CostumRadio from './radio'
 
@@ -26,6 +26,13 @@ const SignUp = () => {
   const [errorLogin, setErrorLogin] = useState('')
   const [createdSucc, setCreatedSucc] = useState('')
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    const getUserFromLocalStorage = localStorage.getItem('junctionData')
+    if (getUserFromLocalStorage !== undefined && getUserFromLocalStorage !== null  ) {
+        navigate('/main/')
+    }
+},[])
 
   const formik = useFormik({
     initialValues: {
