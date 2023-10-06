@@ -11,7 +11,7 @@ const Profile = () => {
             <div>
                 <TopNavBar />
             </div>
-            <div className="pl-[280px] w-full pr-[40px] pt-[130px] background">
+            <div className="pl-[280px] w-full pr-[40px] pt-[100px] background">
                 <Outlet/>
             </div>
             
