@@ -16,6 +16,8 @@
     }
   }
 } 
-.outlet-content{
-  width: calc(100%-(40px));
+.background{
+  background-image : url('./pages/Profiles/assets/bg1.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
