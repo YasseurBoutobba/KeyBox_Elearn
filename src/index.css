@@ -5,3 +5,7 @@
   font-family: 'Poppins' , 'sans-serif';
   scroll-behavior: smooth;
 }
+.error{
+  color:#ff003c !important ;
+  @apply text-[12px]
+}

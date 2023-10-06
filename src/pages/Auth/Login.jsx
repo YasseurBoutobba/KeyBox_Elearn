@@ -3,9 +3,39 @@ import lettreBox from './assets/letterBox.png'
 import passwordIcon from './assets/passwordIcon.png'
 import googlelogo from './assets/googlelogo.png'
 import loginImg from './assets/loginImg.png'
-import { Formik } from 'formik';
+import {useFormik} from 'formik'
+import * as Yup from 'yup';
 import { Link } from "react-router-dom";
+import axios from 'axios'
+import {base_url} from '../../utils/base_url'
+import { useState } from "react";
+
+let userSchema = Yup.object({
+    userName: Yup.string().required('username is required'),
+    password: Yup.string().required('password is required').min(4, 'Password must be at least 4 characters long'),
+});
+
+
 const LogIn = () => {
+    
+    
+    const [errorLogin ,setErrorLogin] = useState('')
+
+    const formik = useFormik({
+        initialValues:  {
+          userName:'',
+          password:''
+        },
+        validationSchema: userSchema,
+        onSubmit: values => {
+          axios.get(`${base_url}/api/auth/login/user`,values).then((res)=>{
+            console.log('succes',res)
+          }).catch((err)=>{
+            setErrorLogin(err?.message  || 'An error occurred while logging in.')
+            console.log(err)
+          })
+        }
+      })
     
     return ( 
         <div className="flex h-[100dvh] items-center justify-between container mx-auto">
@@ -17,9 +47,34 @@ const LogIn = () => {
                     <div className="w-[13.3125rem] h-[1.5625rem] text-gray-400 text-center text-[.9375rem] font-medium leading-6">or continue with email</div>
                     <div className="w-[7.5rem] h-[2px] bg-gray-400" />
                 </div>               
-                <form className="flex flex-col items-center justify-between gap-4">
-                    <CostumInput type={'email'} img={lettreBox} text={"Email"}/>
-                    <CostumInput type={'password'} img={passwordIcon} text={"Password"}/>
+                <form 
+                action='POST'  
+                onSubmit={formik.handleSubmit}
+                className="flex flex-col items-center justify-between gap-4">
+                    <CostumInput
+                    type={'text'}
+                    img={lettreBox}
+                    text={"User name"}
+                    onChange={formik.handleChange('userName')}
+                    value={formik.values.userName}
+                    />
+                    <div className='error'>
+                        {formik.touched.userName && formik.errors.userName ? (
+                        <div>{formik.errors.userName}</div>
+                        ) : null}
+                    </div>
+                    <CostumInput
+                    type={'password'}
+                    img={passwordIcon}
+                    text={"Password"}
+                    onChange={formik.handleChange('password')}
+                    value={formik.values.password}
+                    />
+                    <div className='error'>
+                        {formik.touched.password && formik.errors.password ? (
+                        <div>{formik.errors.password}</div>
+                        ) : null}
+                    </div>
                     <div className="flex justify-between w-full">
                         <div className="flex gap-2">
                             <input type="checkbox"  />
@@ -27,7 +82,7 @@ const LogIn = () => {
                         </div>
                         <span className="text-sm text-gray-400 ">Forgot Password ?</span>
                     </div>
-                    
+                    <div className="error">{errorLogin}</div>
                     <button className=" uppercase py-4 mt-4 bg-mainBlue w-full rounded-lg text-gray-100 font-semibold text-xl" type="submit">log in</button>
                 </form>
                 <p className=" text=sm text-gray-400 ">Don’t have account? 
