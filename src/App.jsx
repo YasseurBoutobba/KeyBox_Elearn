@@ -1,6 +1,5 @@
 
 import LogIn from './pages/Auth/Login'
-import SignUpForm from './pages/Auth/Login'
 import SignUp from './pages/Auth/SignUp'
 import LandingPage from './pages/landing_page/Main'
 import { Route, Routes } from "react-router-dom"

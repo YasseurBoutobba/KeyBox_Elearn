@@ -5,7 +5,7 @@ import googlelogo from './assets/googlelogo.png'
 import loginImg from './assets/loginImg.png'
 import {useFormik} from 'formik'
 import * as Yup from 'yup';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {base_url} from '../../utils/base_url'
 import { useState } from "react";
@@ -18,8 +18,9 @@ let userSchema = Yup.object({
 
 const LogIn = () => {
     
-    
+    const [loginSucc ,setLoginSucc] = useState('')
     const [errorLogin ,setErrorLogin] = useState('')
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues:  {
@@ -28,11 +29,15 @@ const LogIn = () => {
         },
         validationSchema: userSchema,
         onSubmit: values => {
-          axios.get(`${base_url}/api/auth/login/user`,values).then((res)=>{
-            console.log('succes',res)
+          axios.put(`${base_url}/api/auth/login/user`,values).then((res)=>{
+            const junctionData = res.data
+            localStorage.setItem('junctionData',JSON.stringify(junctionData))
+            setLoginSucc(res?.data?.message)
+            setTimeout(() => {
+                // navigate('/login')
+            }, 1500);
           }).catch((err)=>{
             setErrorLogin(err?.message  || 'An error occurred while logging in.')
-            console.log(err)
           })
         }
       })
@@ -46,7 +51,8 @@ const LogIn = () => {
                     <div className="w-[7.5rem] h-[2px] bg-gray-400" />
                     <div className="w-[13.3125rem] h-[1.5625rem] text-gray-400 text-center text-[.9375rem] font-medium leading-6">or continue with email</div>
                     <div className="w-[7.5rem] h-[2px] bg-gray-400" />
-                </div>               
+                </div>     
+                <div className="text-green-500 text-[14px]">{loginSucc}</div>          
                 <form 
                 action='POST'  
                 onSubmit={formik.handleSubmit}
