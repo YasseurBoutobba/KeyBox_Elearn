@@ -10,6 +10,7 @@ import profileImg from "./assets/person.png"
 import {base_url} from '../../utils/base_url'
 import { useState } from "react";
 import axios from 'axios'
+import CostumRadio from "./radio";
 
 
 let userSchema = Yup.object({
@@ -48,13 +49,13 @@ const SignUp = () => {
       })
     
     return ( 
-        <div className="flex h-[100dvh] items-center justify-between container mx-auto">
-            <div className="w-[40%] text-start flex i flex-col gap-4">
+        <div className="flex min-h-[100dvh] items-center justify-between container mx-auto">
+            <div className="w-[40%] text-start flex i flex-col gap-2">
                 <h1 className=" text-4xl font-bold">Create your Account</h1>
                 <p className=" text-lg text-gray-500">Unlock all features!</p>
                             
                 <form 
-                className="flex flex-col items-center justify-between gap-4"
+                className="flex flex-col justify-between gap-2"
                 action='POST'  
                 onSubmit={formik.handleSubmit}
                 >
@@ -100,11 +101,10 @@ const SignUp = () => {
                         <div>{formik.errors.mobile}</div>
                         ) : null}
                     </div>
-                    <CostumInput 
-                    type={'text'} 
+                    
+                    <CostumRadio 
                     onChange={formik.handleChange('accountType')} 
-                    img={passwordIcon} 
-                    text={"accountType"}/>
+                    />
                     <div className='error'>
                         {formik.touched.accountType && formik.errors.accountType ? (
                         <div>{formik.errors.accountType}</div>
@@ -119,8 +119,8 @@ const SignUp = () => {
                     <div className="error">{errorLogin}</div>
                     <button className=" uppercase py-2 mt-4 bg-mainBlue w-full rounded-lg text-gray-100 font-semibold text-xl" type="submit">log in</button>
                 </form>
-                <p className=" text=sm text-gray-400 ">Don’t have account? 
-                    <Link to="/signup">Create an account</Link> 
+                <p className=" text=sm text-gray-400 ">Already have an account? 
+                    <Link to="/login"> Login</Link> 
                 </p>
                 <div className="flex self-center items-center gap-2 border-[1px] w-fit py-2 px-8 border-gray-400 rounded-lg">
                     <img src={googlelogo} alt="" />
