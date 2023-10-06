@@ -56,7 +56,7 @@ const LogIn = () => {
                 <form 
                 action='POST'  
                 onSubmit={formik.handleSubmit}
-                className="flex flex-col items-center justify-between gap-4">
+                className="flex flex-col  justify-between gap-4">
                     <CostumInput
                     type={'text'}
                     img={lettreBox}
