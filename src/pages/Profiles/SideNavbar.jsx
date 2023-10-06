@@ -26,19 +26,19 @@ const SideNavBar = () => {
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink  path={'/main/courses'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
+                    < NavLink  to={'/main/courses'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
                         <BsFolder2Open />
                         <snap>Courses</snap>
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink path={'/main/challenges'} className={`flex items-center gap-4  ${isActive('/main/challenges') ? 'text-[#00C8FF]' : ''}`}>
+                    < NavLink to={'/main/challenges'} className={`flex items-center gap-4  ${isActive('/main/challenges') ? 'text-[#00C8FF]' : ''}`}>
                         <img src={pacmen} alt="" />
                         <snap>Challenges</snap>
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink path={'/main/forum'}  className={`flex items-center gap-4  ${isActive('/main/forum') ? 'text-[#00C8FF]' : ''}`}>
+                    < NavLink to={'/main/forum'}  className={`flex items-center gap-4  ${isActive('/main/forum') ? 'text-[#00C8FF]' : ''}`}>
                         <BiMessageDetail/>
                         <snap>Forum</snap>
                     </ NavLink>
