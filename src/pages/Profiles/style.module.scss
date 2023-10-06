@@ -1,0 +1,18 @@
+
+
+.mainFrame{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 5px;
+  .sideBar{
+    // width: 100vw;
+    // background-color: green;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+
+  }
+}

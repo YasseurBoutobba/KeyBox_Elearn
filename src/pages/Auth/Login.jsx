@@ -36,15 +36,16 @@ const LogIn = () => {
         },
         validationSchema: userSchema,
         onSubmit: values => {
-          axios.put(`${base_url}/api/auth/login/user`,values).then((res)=>{
+          axios.post(`${base_url}/api/auth/login/user`,values).then((res)=>{
             const junctionData = res.data
             localStorage.setItem('junctionData',JSON.stringify(junctionData))
-            setLoginSucc(res?.data?.message)
+            setLoginSucc(res?.data?.message || "successfully logged in")
             setTimeout(() => {
                 navigate('/main/')
             }, 1500);
           }).catch((err)=>{
-            setErrorLogin(err?.message  || 'An error occurred while logging in.')
+            console.log(err);
+            setErrorLogin(err?.response.data.message  || 'An error occurred while logging in.')
           })
         }
       })
@@ -98,13 +99,13 @@ const LogIn = () => {
                     <div className="error">{errorLogin}</div>
                     <button className=" uppercase py-4 mt-4 bg-mainBlue w-full rounded-lg text-gray-100 font-semibold text-xl" type="submit">log in</button>
                 </form>
-                <p className=" text=sm text-gray-400 ">Don’t have account? 
-                    <Link to="/signup">Create an account</Link> 
-                </p>
-                <div className="flex self-center items-center gap-2 border-[1px] w-fit py-2 px-8 border-gray-400 rounded-lg">
+                <Link to="#" className="flex self-center items-center gap-2 border-[1px] w-fit py-2 px-8 border-gray-400 rounded-lg">
                     <img src={googlelogo} alt="" />
                     <h1 className="  text-gray-900 text-xl">Google</h1>
-                </div>
+                </Link>
+                <p className=" text=sm text-gray-400 ">Don’t have account? &nbsp;
+                    <Link to="/signup" className=" underline">Create an account</Link> 
+                </p>
 
             </div>
             <div className="w-[50%] ">
