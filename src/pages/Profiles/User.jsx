@@ -1,20 +1,38 @@
+import { useNavigate } from 'react-router-dom'
 import ramzi from './assets/ramzi.png'
 import {AiOutlineEdit} from 'react-icons/ai'
+import { useEffect } from 'react'
 
 
 export const User = () => {
+
+    const navigate = useNavigate()
+
+    const user = JSON.parse(localStorage.getItem('junctionData'))
+
+    useEffect(()=>{
+        const getUserFromLocalStorage = localStorage.getItem('junctionData')
+        if (getUserFromLocalStorage === undefined || getUserFromLocalStorage === null  ) {
+            navigate('/login')
+        }
+    },[])
+
   return (
-    <div className="w-full  flex gap-20">
+    <div className="w-full  flex gap-12">
        <div className="bg-[#5CD2E6] flex  flex-col gap-5 rounded-[30px] py-16 items-center  min-w-[350px]">
             <div><img src={ramzi} className='w-20 h-20 rounded-[50%]'/></div>
-            <div className='font-bold'>Ramzi Gamech </div>
-            <div>Student </div>
+            <div className='font-bold'>{user?.userName} </div>
+            <div> {user?.role} </div>
             <div className='flex gap-4 items-center'>
-                <div>ramzigamech@gmail.com </div>
+                <div> {user?.email} </div>
                 <AiOutlineEdit/>
             </div>
-            <div className='bg-white px-3 text-black py-2 rounded-xl'>Advanced robotic student</div>
-            <div className='bg-white px-3 text-black py-2 rounded-xl'>Ai developer</div>
+            <div className='flex gap-4 items-center'>
+                <div> {user?.mobile} </div>
+                <AiOutlineEdit/>
+            </div>
+            <div className='bg-white px-3 w-[260px] text-center text-black py-2 rounded-xl'>Advanced robotic student</div>
+            <div className='bg-white px-3 w-[260px] text-center text-black py-2 rounded-xl'>Ai developer</div>
        </div>
        <div className="bg-white rounded-[30px] flex-grow py-10 px-8 min-w-[300px]" >
             <div className='font-bold'>Teachers opinion</div>

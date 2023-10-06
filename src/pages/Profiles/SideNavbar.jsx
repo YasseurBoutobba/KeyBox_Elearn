@@ -1,50 +1,54 @@
-import { Link } from "react-router-dom";
+import {  NavLink, useLocation } from "react-router-dom";
 import { BsPerson, BsBarChart, BsFolder2Open,  } from "react-icons/bs"
 import pacmen from './assets/icons/pacmenicon.png'
 import logout from './assets/icons/logouticon.png'
 import logo from './assets/Logo.png'
 import {BiMessageDetail} from 'react-icons/bi'
 const SideNavBar = () => {
+    const location = useLocation();
+    let isActive = (path) => {
+        return location.pathname === path;
+    };
     return ( 
-        <div className=" bg-darkBlue fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
+        <div className="  bg-darkBlue fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
             <img className=" w-[80px]" src={logo} alt="" />
             <ul className=" w-full flex flex-col justify-between gap-8 text-xl font-meduim">
                 <li>
-                    <Link to={'/main/'} className=" flex items-center gap-4 ">
+                    < NavLink to={'/main/'} className={` flex items-center gap-4 ${isActive('/main/') ? 'text-[#00C8FF]' : ''}`}>
                         <BsPerson />
                         <snap>User</snap>
-                    </Link>
+                    </ NavLink>
                 </li>
                 <li>
-                    <Link to={'/main/leader-bord'} className=" flex items-center gap-4 ">
+                    < NavLink to={'/main/leader-bord'}  className={`flex items-center gap-4 ${isActive('/main/leader-bord') ? 'text-[#00C8FF]' : ''}`} >
                         <BsBarChart />
                         <snap>Leader Board</snap>
-                    </Link>
+                    </ NavLink>
                 </li>
                 <li>
-                    <Link className=" flex items-center gap-4 ">
+                    < NavLink  to={'/main/courses'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
                         <BsFolder2Open />
                         <snap>Courses</snap>
-                    </Link>
+                    </ NavLink>
                 </li>
                 <li>
-                    <Link className=" flex items-center gap-4 ">
+                    < NavLink to={'/main/challenges'} className={`flex items-center gap-4  ${isActive('/main/challenges') ? 'text-[#00C8FF]' : ''}`}>
                         <img src={pacmen} alt="" />
                         <snap>Challenges</snap>
-                    </Link>
+                    </ NavLink>
                 </li>
                 <li>
-                    <Link to={'/main/formuc'} className=" flex items-center gap-4 ">
+                    < NavLink to={'/main/forum'}  className={`flex items-center gap-4  ${isActive('/main/forum') ? 'text-[#00C8FF]' : ''}`}>
                         <BiMessageDetail/>
                         <snap>Forum</snap>
-                    </Link>
+                    </ NavLink>
                 </li>
             </ul>
             <div >
-                <Link to="/" className=" flex items-center justify-between">
+                < NavLink to="/" className=" flex items-center justify-between" >
                     <span>Log out</span>
                     <img src={logout} alt="" />
-                </Link>
+                </ NavLink>
             </div>
             
         </div>
