@@ -127,7 +127,7 @@ const SignUp = () => {
               { value: 'student', id: "student", label: 'Student' }
             ]}
             name="role"
-            onChange={formik.handleChange('accountType')}
+            onChange={formik.handleChange('role')}
           />
 
           <div className='error'>
