@@ -25,8 +25,8 @@ const SideNavBar = () => {
     }
 
     return ( 
-        <div className="  bg-darkBlue fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
-            <img className=" w-[80px]" src={logo} alt="" />
+        <div className="  bg-darkBlue rounded-tr-xl rounded-br-xl shadow-sm fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
+            <img className=" w-[140px] h-auto" src={logo} alt="" />
             <ul className=" w-full flex flex-col justify-between gap-8 text-xl font-meduim">
                 <li>
                     < NavLink to={'/main/'} className={` flex items-center gap-4 ${isActive('/main/') ? 'text-[#00C8FF]' : ''}`}>
@@ -41,28 +41,29 @@ const SideNavBar = () => {
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink  to={'/main/courses'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
+                    < NavLink  to={'/main/coursespage'} className={`flex items-center gap-4  ${isActive('/main/coursespage') ? 'text-[#00C8FF]' : ''}`} >
                         <BsFolder2Open />
                         <snap>Courses</snap>
                     </ NavLink>
                 </li>
                 <li>
                     < NavLink to={'/main/challenges'} className={`flex items-center gap-4  ${isActive('/main/challenges') ? 'text-[#00C8FF]' : ''}`}>
+
                         <img src={pacmen} alt="" />
                         <snap>Challenges</snap>
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink to={'/main/formuc'}  className={`flex items-center gap-4  ${isActive('/main/formuc') ? 'text-[#00C8FF]' : ''}`}>
+                    < NavLink to={'/main/forum'}  className={`flex items-center gap-4  ${isActive('/main/forum') ? 'text-[#00C8FF]' : ''}`}>
                         <BiMessageDetail/>
                         <snap>Forum</snap>
                     </ NavLink>
                 </li>
             </ul>
             <div >
-                < button onClick={handleLogout} className=" flex items-center justify-between" >
+                < button onClick={handleLogout} className=" flex items-center justify-between w-full" >
                     <span>Log out</span>
-                    <img className="ml-12" src={logout} alt="" />
+                    <img className="" src={logout} alt="" />
                 </ button>
             </div>
             

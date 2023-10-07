@@ -8,7 +8,7 @@ import arrowUpRight from './assets/icons/arrow-up-right.png'
 import CommentCard from "./components/comment"
 import FormucProfile from "./components/FormucProfile"
 
-const Formuc = () => {
+const Forum = () => {
     return (   
         <div className=" flex justify-between">
             <div className=" mainthing w-[70%] flex flex-col gap-10 overflow-x-hidden">
@@ -29,7 +29,6 @@ const Formuc = () => {
                     <CommentCard />
                     <CommentCard />
                     <CommentCard />
-                    <CommentCard />
                 </div>
             </div>
             <div className=" w-[25%] ">
@@ -39,4 +38,4 @@ const Formuc = () => {
       );
 }
  
-export default Formuc; 
+export default Forum; 
