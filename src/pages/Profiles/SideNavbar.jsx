@@ -25,7 +25,7 @@ const SideNavBar = () => {
     }
 
     return ( 
-        <div className="  bg-darkBlue fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
+        <div className="  bg-darkBlue rounded-tr-xl rounded-br-xl shadow-sm fixed px-8 py-6 h-[100dvh] flex flex-col justify-between text-gray-100 "> 
             <img className=" w-[140px] h-auto" src={logo} alt="" />
             <ul className=" w-full flex flex-col justify-between gap-8 text-xl font-meduim">
                 <li>
@@ -48,7 +48,7 @@ const SideNavBar = () => {
                 </li>
                 <li>
                     < NavLink to={'/main/challenges'} className={`flex items-center gap-4  ${isActive('/main/challenges') ? 'text-[#00C8FF]' : ''}`}>
-                        
+
                         <img src={pacmen} alt="" />
                         <snap>Challenges</snap>
                     </ NavLink>
@@ -61,9 +61,9 @@ const SideNavBar = () => {
                 </li>
             </ul>
             <div >
-                < button onClick={handleLogout} className=" flex items-center justify-between" >
+                < button onClick={handleLogout} className=" flex items-center justify-between w-full" >
                     <span>Log out</span>
-                    <img className="ml-12" src={logout} alt="" />
+                    <img className="" src={logout} alt="" />
                 </ button>
             </div>
             

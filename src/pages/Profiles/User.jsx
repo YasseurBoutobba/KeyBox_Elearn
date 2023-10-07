@@ -28,7 +28,7 @@ export const User = () => {
     },[])
 
   return (
-    <div className="w-full  flex gap-12 items-center">
+    <div className="w-full  flex gap-12 pt-4 pb-10 items-center">
        <div className="bg-gray-50 flex  flex-col gap-5 rounded-xl py-10 items-center shadow-lg min-w-[350px]">
             <div><img src={ramzi} className='w-20 h-20 rounded-[50%]'/></div>
             <div className='font-bold capitalize text-3xl '>{user?.userName} </div>

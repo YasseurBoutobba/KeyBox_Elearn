@@ -60,7 +60,7 @@ export const LeaderBoard = () => {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col gap-4 py-10'>
+        <div className='flex flex-col gap-4 '>
             {
                 users?.map((user,key)=>{
                     i++

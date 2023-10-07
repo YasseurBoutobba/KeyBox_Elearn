@@ -7,6 +7,7 @@ import Courses from "./compenets/Courses";
 import Partners from "./compenets/Partnership";
 import AboutUs from "./compenets/Aboutus";
 import Footer from "./compenets/Footer";
+import DownloadApp from "./compenets/Download";
 const LandingPage = () => {
     useEffect(() => {
         AOS.init({
@@ -24,6 +25,7 @@ const LandingPage = () => {
                 <Courses />
                 <Partners />
                 <AboutUs />
+                <DownloadApp />
             </div>
             <div className=" bg-[#4D4D4D]">
                 <Footer />
