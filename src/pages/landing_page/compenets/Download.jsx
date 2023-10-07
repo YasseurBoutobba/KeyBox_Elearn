@@ -1,4 +1,4 @@
-import downloadAppImg from '../assets/downloadapp.png'
+import downloadAppImg from '../assets/downloadApp.png'
 const DownloadApp = () => {
     const appLink = "https://drive.google.com/file/d/1MQkClPoxLHumRnCdEkYAY2PzAy7WO-ZP/view"
     return ( 
