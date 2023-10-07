@@ -44,12 +44,13 @@ const Challenges = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
 
   const handleOpenPopup = () => {
-    setPopupVisible(true);
+    setPopupVisible(true)
   };
 
   const handleClosePopup = () => {
-    setPopupVisible(false);
+    setPopupVisible(false)
   };
+
     return ( 
         <div className="py-6" >
             <h1 className=" text-3xl mb-6 font-bold">Challenges </h1>

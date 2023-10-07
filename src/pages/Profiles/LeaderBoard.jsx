@@ -11,27 +11,28 @@ export const LeaderBoard = () => {
 
     const navigate = useNavigate()
     let i = 0;
-    const arrayOfObjects = [
-        { userName: "John", points: 95 },
-        { userName: "Emma", points: 88 },
-        { userName: "Michael", points: 76 },
-        { userName: "Olivia", points: 84 },
-        { userName: "William", points: 92 },
-        { userName: "Sophia", points: 79 },
-        { userName: "James", points: 90 },
-        { userName: "Ava", points: 85 },
-        { userName: "Benjamin", points: 81 },
-        { userName: "Mia", points: 70 }
-      ];
+    // const arrayOfObjects = [
+    //     { userName: "John", points: 95 },
+    //     { userName: "Emma", points: 88 },
+    //     { userName: "Michael", points: 76 },
+    //     { userName: "Olivia", points: 84 },
+    //     { userName: "William", points: 92 },
+    //     { userName: "Sophia", points: 79 },
+    //     { userName: "James", points: 90 },
+    //     { userName: "Ava", points: 85 },
+    //     { userName: "Benjamin", points: 81 },
+    //     { userName: "Mia", points: 70 }
+    //   ];
       
 
     useEffect(()=>{
         const getUsers = async () => {
             try{
             const response = await axios.get(`${base_url}/api/auth/users-rank`);
+            console.log(response.data)
             setUsers(response.data);
-            } catch{
-                setUsers(arrayOfObjects)
+            } catch(err){
+               throw new Error(err)
             }
         };
         getUsers();
@@ -60,7 +61,7 @@ export const LeaderBoard = () => {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col gap-4 '>
+        <div className='flex flex-col gap-4 mt-8 '>
             {
                 users?.map((user,key)=>{
                     i++
