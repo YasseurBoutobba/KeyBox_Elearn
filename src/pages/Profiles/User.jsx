@@ -1,16 +1,26 @@
 import { useNavigate } from 'react-router-dom'
 import ramzi from './assets/ramzi.png'
 import {AiOutlineEdit} from 'react-icons/ai'
-import { useEffect } from 'react'
-
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import {base_url} from '../../utils/base_url'
 
 export const User = () => {
+
+    const [opinions,setOpinions] = useState([])
 
     const navigate = useNavigate()
 
     const user = JSON.parse(localStorage.getItem('junctionData'))
 
     useEffect(()=>{
+
+        const getOpinions = async () => {
+            const response = await axios.get(`${base_url}/api/auth/get/${user.id}`);
+            setOpinions(response.data.opinion)
+        };
+        getOpinions();
+
         const getUserFromLocalStorage = localStorage.getItem('junctionData')
         if (getUserFromLocalStorage === undefined || getUserFromLocalStorage === null  ) {
             navigate('/login')
@@ -36,7 +46,20 @@ export const User = () => {
        </div>
        <div className="bg-white rounded-[30px] flex-grow py-10 px-8 min-w-[300px]" >
             <div className='font-bold'>Teachers opinion</div>
-            <div className='py-5'>
+            {
+                opinions && opinions.map((item,key)=>(
+                    <div key={key} className='py-5'>
+                        <div className='flex gap-3 items-center'>
+                            <img src={`${item?.image}`} className='w-5 h-5 rounded-[40%]' />
+                            <div className='font-bold text-[14px]'>{item?.writer?.userName}</div>
+                        </div>
+                        <div className='text-[12px] py-2 mx-4 w-[400px]'>
+                            {item?.description}
+                        </div>
+                    </div>
+                ))
+            }
+            {/* <div className='py-5'>
                 <div className='flex gap-3 items-center'>
                     <img src={ramzi} className='w-5 h-5 rounded-[40%]' />
                     <div className='font-bold text-[14px]'>zakarya saoual</div>
@@ -44,25 +67,7 @@ export const User = () => {
                 <div className='text-[12px] py-2 mx-4 w-[400px]'>
                     Lorem ipsum dolor sit amet consectetur. In quisque commodo ipsum morbi fusce 
                 </div>
-            </div>
-            <div className='py-5'>
-                <div className='flex gap-3 items-center'>
-                    <img src={ramzi} className='w-5 h-5 rounded-[40%]' />
-                    <div className='font-bold text-[14px]'>tamer merad</div>
-                </div>
-                <div className='text-[12px] py-2 mx-4 w-[400px]'>
-                    Lorem ipsum dolor sit amet consectetur. In quisque commodo ipsum morbi fusce 
-                </div>
-            </div>
-            <div className='py-5'>
-                <div className='flex gap-3 items-center'>
-                    <img src={ramzi} className='w-5 h-5 rounded-[40%]' />
-                    <div className='font-bold text-[14px]'>fadi sefih</div>
-                </div>
-                <div className='text-[12px] py-2 mx-4 w-[400px]'>
-                    Lorem ipsum dolor sit amet consectetur. In quisque commodo ipsum morbi fusce 
-                </div>
-            </div>
+            </div> */}
 
        </div>
     </div>
