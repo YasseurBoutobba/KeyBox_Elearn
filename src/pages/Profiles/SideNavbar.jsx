@@ -26,7 +26,7 @@ const SideNavBar = () => {
                     </ NavLink>
                 </li>
                 <li>
-                    < NavLink  to={'/main/courses'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
+                    < NavLink  to={'/main/coursespage'} className={`flex items-center gap-4  ${isActive('/main/courses') ? 'text-[#00C8FF]' : ''}`} >
                         <BsFolder2Open />
                         <snap>Courses</snap>
                     </ NavLink>

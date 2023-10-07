@@ -17,7 +17,7 @@ const Profile = () => {
     console.log(userData);
 
     return ( 
-        <div className="w-screen min-h-screen relative flex bg-[#EAEEF7]">
+        <div className=" min-h-screen relative flex bg-[#EAEEF7]">
             <div>
                 <SideNavBar />
             </div>

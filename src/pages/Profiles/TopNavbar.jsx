@@ -5,7 +5,7 @@ const TopNavBar = () => {
     const user = JSON.parse(localStorage.getItem('junctionData'))
 
     return ( 
-        <div className=" fixed flex justify-around w-[80%] min-h-[10vh]  py-4 border-b-[1px] shadow-sm border-gray-200 left-[20%] bg-[#EAEEF7]" >
+        <div className=" z-10 fixed flex justify-around w-[80%] min-h-[10vh]  py-4 border-b-[1px] shadow-sm border-gray-200 left-[20%] bg-[#EAEEF7]" >
             <div>
                 <h1 className=' font-semibold'>Welcome, {user?.userName}</h1>
                 <p>Have a good day !</p>

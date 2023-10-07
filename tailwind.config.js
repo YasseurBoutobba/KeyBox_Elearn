@@ -22,6 +22,7 @@ export default {
       },
       fontFamily: {
         poppins : ['Poppins', "sans-serif"],
+        DelaGothic : ['Dela Gothic One', "cursive"]
       }
     },
   },
