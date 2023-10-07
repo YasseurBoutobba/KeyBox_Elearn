@@ -59,15 +59,6 @@ export const User = () => {
                     </div>
                 ))
             }
-            {/* <div className='py-5'>
-                <div className='flex gap-3 items-center'>
-                    <img src={ramzi} className='w-5 h-5 rounded-[40%]' />
-                    <div className='font-bold text-[14px]'>zakarya saoual</div>
-                </div>
-                <div className='text-[12px] py-2 mx-4 w-[400px]'>
-                    Lorem ipsum dolor sit amet consectetur. In quisque commodo ipsum morbi fusce 
-                </div>
-            </div> */}
 
        </div>
     </div>
