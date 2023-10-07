@@ -11,11 +11,28 @@ export const LeaderBoard = () => {
 
     const navigate = useNavigate()
     let i = 0;
+    const arrayOfObjects = [
+        { userName: "John", points: 95 },
+        { userName: "Emma", points: 88 },
+        { userName: "Michael", points: 76 },
+        { userName: "Olivia", points: 84 },
+        { userName: "William", points: 92 },
+        { userName: "Sophia", points: 79 },
+        { userName: "James", points: 90 },
+        { userName: "Ava", points: 85 },
+        { userName: "Benjamin", points: 81 },
+        { userName: "Mia", points: 70 }
+      ];
+      
 
     useEffect(()=>{
         const getUsers = async () => {
+            try{
             const response = await axios.get(`${base_url}/api/auth/users-rank`);
             setUsers(response.data);
+            } catch{
+                setUsers(arrayOfObjects)
+            }
         };
         getUsers();
         const getUserFromLocalStorage = localStorage.getItem('junctionData')
@@ -48,7 +65,7 @@ export const LeaderBoard = () => {
                 users?.map((user,key)=>{
                     i++
                     return(
-                        <div key={key} className={`flex justify-around ${i!==1 ? 'bg-[#9FACDA]' : " bg-leader"}  py-2 rounded-[20px]`}>
+                        <div key={key} className={`flex justify-around ${i!==1 ? 'bg-[#9FACDA]' : " bg-leader"}  py-2 rounded-[16px]`}>
                             <div className='font-bold text-[20px]'>{i}</div>
                             <div className='font-bold'>{user?.userName}</div>
                             <div className='font-bold'>{user?.point} point</div>

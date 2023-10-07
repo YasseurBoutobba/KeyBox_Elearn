@@ -2,7 +2,7 @@ import coursePic from '../assets/coursepic.png'
 import profilepic from '../assets/profilepic1.png'
 const CoursCard = () => {
     return ( 
-        <div className=' relative flex flex-col w-[24%] rounded-lg bg-gray-300'>
+        <div className=' relative flex flex-col w-[23%] rounded-lg bg-gray-300'>
             <img className=' w-full rounded-xl abs ' src={coursePic} alt="" />
            
             <div className=' relative p-4'>

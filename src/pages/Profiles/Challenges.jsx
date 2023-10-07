@@ -1,7 +1,7 @@
 import { useState } from "react";
-const Challenge = () =>{
+const Challenge = ( ) =>{
     return(
-        <div className=" flex flex-col gap-4 items-center w-[250px] p-6 rounded-lg bg-gray-50 shadow-lg ">
+        <div className=" flex flex-col gap-4 items-center w-[30%] p-6 rounded-lg bg-gray-50 shadow-lg ">
             <div className=" flex justify-between w-full ">
                 <h1 className=" font-semibold">Challenge 1</h1>
                 <span className=" font-semibold">10 pts</span>
@@ -52,10 +52,18 @@ const Challenges = () => {
   };
     return ( 
         <div className="py-6" >
-            <h1 className=" text-3xl mb-6 font-bold">Challenges : </h1>
-            <div onClick={handleOpenPopup} className=" cursor-pointer">
-            <Challenge />
-
+            <h1 className=" text-3xl mb-6 font-bold">Challenges </h1>
+            <h1 className=" text-2xl font-semibold text-mainBlue my-8" >Easy</h1>
+            <div onClick={handleOpenPopup} className=" flex flex-wrap gap-4 cursor-pointer">
+                <Challenge /><Challenge /><Challenge />
+            </div>
+            <h1 className=" text-2xl font-semibold text-mainBlue my-8" >Meduim </h1>
+            <div onClick={handleOpenPopup} className=" flex flex-wrap gap-4 cursor-pointer">
+                <Challenge /><Challenge /><Challenge />
+            </div>
+            <h1 className=" text-2xl font-semibold text-mainBlue my-8" >Hard </h1>
+            <div onClick={handleOpenPopup} className=" flex flex-wrap gap-4 cursor-pointer">
+                <Challenge /><Challenge /><Challenge />
             </div>
             <br />
             {isPopupVisible && <ChallengePopUp isVisible={isPopupVisible} onClickOutSide={() => setPopupVisible(false)} />}

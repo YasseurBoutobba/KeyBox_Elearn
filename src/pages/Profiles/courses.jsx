@@ -15,12 +15,16 @@ const CoursesPage = () => {
         <NewsCard img={news3} width={{width: '28%'}} hcontent={'Our New mobile applcation'} />
       </div>
       <h1 className=" text-3xl text-gray-900 font-bold mb-4">Current Courses</h1>
-      <div className=" py-10 flex flex-wrap gap-6">
+      <div className=" py-10 flex flex-wrap gap-4">
+        <CoursCard />
+        <CoursCard />
         <CoursCard />
         <CoursCard />
       </div>
       <h1 className=" text-3xl capitalize text-gray-900 font-bold mb-4">exclusive Courses</h1>
-      <div className=" py-10 flex flex-wrap gap-6">
+      <div className=" py-10 flex flex-wrap gap-4">
+        <CoursCard />
+        <CoursCard />
         <CoursCard />
         <CoursCard />
       </div>
