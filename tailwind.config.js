@@ -18,7 +18,7 @@ export default {
       colors: {
         mainBlue: '#1BAAD1',
         secondaryBlue: '#82E4FF',
-        darkBlue: '#003EB6'
+        darkBlue: '#3085C3'
       },
       fontFamily: {
         poppins : ['Poppins', "sans-serif"],

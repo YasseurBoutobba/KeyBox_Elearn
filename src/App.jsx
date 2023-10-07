@@ -8,6 +8,7 @@ import {User } from './pages/Profiles/User'
 import { LeaderBoard } from './pages/Profiles/LeaderBoard'
 import Forum from './pages/Profiles/Forum'
 import CoursesPage from './pages/Profiles/courses'
+import Challenges from './pages/Profiles/CHallenges'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path={'leader-bord'} element={<LeaderBoard/>} />
         <Route path={'forum'} element={<Forum />} />
         <Route path='coursespage' element={<CoursesPage />} />
+        <Route path={'challenges'} element={<Challenges />} />
 
       </Route>
     </Routes>
